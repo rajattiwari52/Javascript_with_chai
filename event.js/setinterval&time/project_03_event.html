@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <h1>Welcome to chai or code </h1>
+       <button class="start" type="button">Start</button>
+       <button class="stop" type="button">Stop</button>
+    <script>
+    const randomcolour = function(){
+         const hex = "0123456789ABCDEF";
+        let colour = '#';
+        for(let i=0;i<6;i++){
+             colour += hex[Math.floor(Math.random() * hex.length)];
+        }
+        return colour;
+    };
+    
+    let intervalsId;
+
+    const startchangecolour = function(){
+        if(!intervalsId){
+            intervalsId = setInterval(changebycolour,1000);
+        }
+
+        function changebycolour(){
+            document.body.style.backgroundColor = randomcolour();
+        }
+    }
+
+
+    const stopcolour = function(){
+        clearInterval(intervalsId);
+        intervalsId = null;
+    }
+
+    document.querySelector('.start').addEventListener('click',startchangecolour);
+    document.querySelector('.stop').addEventListener('click',stopcolour);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+  <style>
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #1f2937, #111827);
+        color: #f3f4f6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+    
+    .wrapper {
+        width: 90%;
+        max-width: 700px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+        padding: 30px 25px;
+    }
+    
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 2rem;
+        color: #facc15;
+    }
+    
+    p {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        margin-bottom: 10px;
+    }
+    
+    form {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    label {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #e5e7eb;
+    }
+    
+    .guessfield {
+        width: 100%;
+        padding: 14px 16px;
+        border-radius: 10px;
+        border: 2px solid #9ca3af;
+        outline: none;
+        font-size: 1.1rem;
+        background: #f9fafb;
+        color: #111827;
+    }
+    
+    .guessfield:focus {
+        border-color: #facc15;
+        box-shadow: 0 0 0 3px rgba(250, 204, 21, 0.25);
+    }
+    
+    .guessSubmit {
+        padding: 12px 18px;
+        border: none;
+        border-radius: 10px;
+        background: linear-gradient(135deg, #22c55e, #16a34a);
+        color: white;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+    
+    .guessSubmit:hover {
+        background: linear-gradient(135deg, #16a34a, #15803d);
+    }
+    
+    .resultparas {
+        margin-top: 25px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 12px;
+        padding: 15px 18px;
+    }
+    
+    .resultparas p {
+        margin: 8px 0;
+    }
+    
+    .guesses,
+    .lastresult,
+    .lowOrHi {
+        font-weight: bold;
+        color: #fef08a;
+    }
+    
+    .lowOrHi {
+        color: #fbbf24;
+        font-size: 1.1rem;
+    }
+  </style>
+<body>
+   <div class="wrapper">
+    <h1>GUSSING NUMBER GAME</h1>
+    <p>
+        try and guess the number between 1 to 100 and you have only 10 chances to guess the number correctly. if you guess the number correctly then you will win the game otherwise you will lose the game.
+    </p>
+    <br>
+    <p>you have 10 chances to guess the number correctly.</p>
+</br>
+      
+     <form>
+        <label for="guessfield" id ="guessfield">Enter your guess:</label>
+        <input type="text" id="guessfield" class = "guessfield ">
+        <br>
+        <input type="submit" id = "subt" value="submit guess" class = "guessSubmit">
+     </form>
+     <div class="resultparas">
+        <p>previous guesses: <span class="guesses"></span></p>
+        <p>guesses remaining: <span class="lastresult">10</span></p>
+        <p class = "lowOrHi"></p>
+     </div>
+   </div>  
+   <script src="p4.js"></script>
+</body>
+</html>

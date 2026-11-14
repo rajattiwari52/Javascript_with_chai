@@ -1,0 +1,117 @@
+1. Scope
+        Scope = variable kaha access ho sakta hai.
+
+        Types:
+            - Global Scope → kahin se bhi access
+            - Function Scope → function ke andar
+            - Block Scope → { } ke andar
+        var  → Function Scope
+        let  → Block Scope
+        const → Block Scope
+
+2. Lexical Scope
+        Inner scope apne outer scope ke variables ko access kar sakta hai.
+        let a = 10;
+
+        function outer() {
+            let b = 20;
+
+            function inner() {
+                console.log(a, b);
+            }
+        }
+
+4. Hoisting ⭐
+        Execution se pehle declarations ka environment mein register/process hona = Hoisting
+        var
+        console.log(a); // undefined
+        var a = 10;
+
+        ➡️ var hoisted + undefined se initialized.
+        let / const
+        console.log(a); // ReferenceError
+        let a = 10;
+
+5. TDZ ⭐
+        TDZ = Temporal Dead Zone
+
+        let/const ki declaration se initialization tak ka time.
+        console.log(a); // Error
+        let a = 10;
+
+basics
+
+        var vs let vs const → var function-scoped, let & const block-scoped; let reassign ho sakta hai, const nahi.
+
+        Primitive vs Object → Primitive single value store karta hai, Object key-value pairs/data collection store karta hai.
+
+        null vs undefined → null = intentionally empty, undefined = value assign nahi hui.
+
+        typeof null → "object" — JavaScript ka historical bug.
+
+        BigInt → n → Large integer ke liye use hota hai, e.g. 123n.
+
+        Symbol → unique → Har Symbol() ek unique value banata hai.
+
+        const → mutation allowed, reassignment not allowed → Object/array ko modify kar sakte ho, but variable ko new value assign nahi kar sakte.
+
+        Q1. What is type conversion?
+        → Ek datatype ko doosre datatype me convert karna.
+
+        Q2. Number("123abc") kya return karega?
+        → NaN.
+
+        Q3. typeof NaN?
+        → "number".
+
+        Q4. Number(null)?
+        → 0.
+
+        Q5. Number(undefined)?
+        → NaN.
+
+        Q6. 5 == "5"?
+        → true because type coercion.
+
+        Q7. 5 === "5"?
+        → false because datatype different.
+
+        Q8. == vs ===?
+        → == allows type coercion; === checks value + datatype.
+
+        Q9. typeof null?
+        → "object" — historical JS behavior.
+
+        Q10. What are primitive datatypes?
+        → Number, String, Boolean, null, undefined, Symbol, BigInt.
+
+        Q11. Primitive vs Non-primitive?
+        → Primitive stores value; non-primitive works through object references.
+
+        Q12. Is Array an object?
+        → Yes, typeof [] is "object".
+
+        Q13. What is Symbol?
+        → A datatype used to create unique identifiers.
+
+        Q14. What is BigInt?
+        → Used for very large integers; written with n.
+
+        Q15. Is JavaScript statically or dynamically typed?
+        → Dynamically typed.
+
+        Q16. "5" + 2?
+        → "52" because string concatenation.
+
+        Q17. 2 + 2 + "5"?
+        → "45".
+
+        Q18. +true and +false?
+        → 1 and 0.
+
+        Q19. null == 0?
+        → false.
+
+        Q20. Why prefer ===?
+        → Unexpected type coercion avoid hoti hai.
+        

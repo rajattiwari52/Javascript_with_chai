@@ -1,0 +1,33 @@
+DATA:
+    Data = information that we want to store and use
+    · e.g. users, names, emails, products, prices, orders, payments
+    . Data can exist in different forms: numbers, text, dates, images, etc
+    · In an application, data is continuously created, read, updated, and deleted
+    . As the application grows, managing large amounts of data becomes difficult
+
+// ab is data ko muje relibaly organised way & relibaly fast retrive krna h to we use database
+
+Database
+· A database is an organized system for storing and managing data
+· It provides persistent storage for application data
+· Allows us to efficiently create, read, update, and delete data
+. Databases can handle large amounts of data and many concurrent users
+· A relational database organizes data into tables consisting of rows and columns
+. Tables can be connected through relationships
+· Examples of relational databases: PostgreSQL, MySQL, Oracle, SQL Server, SQLite
+. The software that manages a database is called a DBMS (Database Management System)
+
+ Application -----> Need all users------>DBMS (Postgres)----->Fetches users from disk----->disk
+
+SQL
+  SELECT * FROM users;
+. SQL = Structured Query Language
+· SQL is a language used to communicate with relational databases
+· It allows us to create, read, update, and delete data
+· SQL can also be used to define tables, relationships, constraints, indexes, etc.
+. SQL is primarily a declarative language we tell the database what we want,
+   not exactly how to get it
+. Different database systems may have their own SQL extensions and syntax
+
+  SELECT *
+* FROM users WHERE age > 23:

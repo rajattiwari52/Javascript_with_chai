@@ -1,0 +1,49 @@
+document.getElementById('title') // this will return the element with the id 'title'
+document.getElementsByClassName('heading')[0].id // this will return the id of the first element with the class 'heading'
+document.getElementsByTagName('title').className // this is give class name of the title tag but it will return undefined because title tag does not have any class name    
+document.getElementsByTagName('title').getattribute('class') // this will return null because title tag does not have any class name
+document.getElementsByTagName('title').setattribute('class' ,'rajat') // here we overwrite the class name of the title tag to 'rajat' 
+
+const title = document.getElementById('title') // this will return the element with the id 'title'
+title.getAttribute('class') // this will return the class name of the title tag
+title.setAttribute('class' ,'rajat') // here we overwrite the class name of the title tag to 'rajat'    
+title.className // this will return the class name of the title tag
+title.style.color = 'red' // this will change the color of the title tag to red
+title.style.fontSize = '50px' // this will change the font size of the title tag to 50px
+title.style.backgroundColor = 'yellow' // this will change the background color of the title tag to yellow
+and etc
+
+
+title.textContent // this will return the text content of the title tag ,it return all text also those are not visible like span  ke andr ka bhi 
+title.innerHTML // this will return the inner HTML of the title tag , it retrun all text inside the tag and also the html tags inside it
+title.innerText // this will return the inner text of the title tag , it retrun all text inside the tag but it will not return the html tags inside it
+
+document.querySelector('h1') // this will return the first h1 tag in the document
+document.querySelectorAll('h1') // this will return all the h1 tags in the document as a NodeList
+document.querySelectorAll('.heading') // this will return all the elements with the class 'heading' as a NodeList
+document.querySelectorAll('#title') // this will return the element with the id 'title' as a NodeList   
+
+document.querySelector('ul')
+const uli = document.querySelector('ul')
+uli.style.backgroundColor = 'red' // this will change the background color of the ul tag to red
+uli.style.color = 'white' // this will change the color of the ul tag to white
+and etc
+
+//we can also selet all the element by queryselectorAll and then we can use forEach loop to iterate over the NodeList and change the style of each element
+uli.querySelectorAll('li').forEach((item) => {
+    item.style.backgroundColor = 'blue' // this will change the background color of each li tag to blue
+    item.style.color = 'white' // this will change the color of each li tag to white                
+}
+
+document.getElementsByClassName('list-item') // this will return all the elements with the class 'list-item' as an HTMLCollection
+const listItems = document.getElementsByClassName('list-item')
+listItems.forEach((item) => { // this will give error because HTMLCollection is not iterable
+    item.style.backgroundColor = 'blue' // this will change the background color of each li tag to blue
+    item.style.color = 'white' // this will change the color of each li tag to white                
+}
+//so that we convert HTMLCollection to Array
+Array.from(listItems).forEach((item) => {
+    item.style.backgroundColor = 'blue' // this will change the background color of each li tag to blue
+    item.style.color = 'white' // this will change the color of each li tag to white                
+})
+

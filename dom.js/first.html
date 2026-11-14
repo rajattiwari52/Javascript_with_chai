@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+</head>
+<body style ="background-color: rgb(0, 0, 0); color: white;">
+  
+     <div class = "parent">
+        <div class = "day">monday</div>
+        <div class = "day">tuesday</div>
+        <div class = "day">wednesday</div>
+     </div>
+     
+     <script src = "basic.js">
+        const parent = document.querySelector(".parent");
+        console.log(parent);
+        console.log(parent.children);  // isme hmko html collection milega
+        console.log(parent.children[0]); // isme hmko html collection ke first element milega
+        console.log(parent.children[0].innerHTML); // isme hmko html collection ke first element ke inner html milega
+
+
+        for(let i = 0; i < parent.children.length; i++){
+            console.log(parent.children[i].innerHTML);
+        }
+       parent.children[1].style.backgroundColor = "red";
+       console.log(parent.firstElementChild); // isme hmko html collection ke first element milega
+       console.log(parent.lastElementChild); // isme hmko html collection ke last element mile
+
+       const day = document.querySelectorAll(".day");
+       console.log(day); // isme hmko node list milega
+
+       console.log(day.parentElement); // isme hmko null milega kyu ki node list ke pass parent element nhi hota
+       console.log(day.nextElementSibling); // isme hmko null milega kyu ki node list ke pass next element sibling nhi hota
+       console.log(day.previousElementSibling); // isme hmko null milega kyu ki
+
+       console.log("NODES" , parent.childNodes); // isme hmko node list milega
+       console.log("NODES" , parent.childNodes[0]); // isme hmko node list ke first element milega
+
+       // nodes behind the seen , ye isliye hota kyu ki html me space ko bhi node consider kiya jata hai
+       // isliye hmko childNodes ke pass text node bhi milega jo ki space ko represent karta hai
+
+       //example ke saath 
+        
+       const div = document.createElement("div");
+       console.log(div); // isme hmko div element milega
+       div.className = "day";
+       div.id = "day4"; //or
+       div.id = Math.round(Math.random() * 1000); // isme hmko random id milega
+       div.setAttribute("title", "day4"); // isme hmko title attribute milega
+       div.innerHTML = "thursday"; // isme hmko inner html milega
+       div.style.backgroundColor = "green"; // isme hmko background color milega
+       div.innerText = "chai or code"; ye 2 step m hota h div ka refrence lake vaha over write krta h 
+       //isiliy hm ye bhi use kr skte h 
+       const addtext = document.createTextNode("chai or code"); // isme hmko text node milega
+       div.appendChild(addtext); // isme hmko text node milega jo ki div
+       //av siko document s attach kr dege
+       document.body.appendChild(div); // isme hmko div element milega jo ki body ke last me add ho jayega
+     </script>
+     
+
+    // if body me sirf ek ul ke andr li diya h to av we do...
+     <script>
+        function addlanguage(langname){
+            const li = document.createElement("li"); 
+            li.innerHTML = '${langname}';
+            document.querySelector("ul").appendChild(li);
+        }
+        addlanguage("javascript");
+        addlanguage("python");
+
+        //other optimal approach 
+
+        function addoptimallanguage(langname){
+            const li = document.createElement("li"); 
+           li.appendChild(document.createTextNode(langname));
+            document.querySelector("ul").appendChild(li);
+        }
+        addoptimallanguage("javascript");
+        addoptimallanguage("python");
+
+        //editing 
+        const secondlang = document.querySelector("li:nth-child(2)");
+        secondlang.innerHTML = "updated javascript";
+        //or optimal approach
+        const newli  = document.createElement("li");
+        newli.textContent = "updated javascript";
+        secondlang.replaceWith(newli);
+
+        //or other approach
+        const firstlang = document.querySelector("li:nth-child(1)");
+        firstlang.outerHTML = "<li>updated python</li>";
+
+        //remove
+        const lastlang = document.querySelector("li:nth-child(3)");
+        lastlang.remove();
+     
+     
+     </script>
+</body>
+</html>

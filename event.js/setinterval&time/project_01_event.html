@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to chai or code </h1>
+    <button class="start" type="button">Start</button>
+    <button class="stop" type="button">Stop</button>
+    <script>
+        const name = "teri maki bosda";
+        let intervalId = null;
+
+        const printNameAndTime = function () {
+            console.log(name, new Date().toLocaleTimeString());
+        };
+
+        document.querySelector(".start").addEventListener("click", function () {
+            if (intervalId !== null) {
+                return;
+            }
+
+            printNameAndTime();
+            intervalId = setInterval(printNameAndTime, 1000); //hr second pr hi print hota jayga
+        });
+
+        document.querySelector(".stop").addEventListener("click", function () {
+            clearInterval(intervalId);
+            intervalId = null;
+        });
+    </script>
+</body>
+</html>

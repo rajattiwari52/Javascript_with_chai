@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            margin: 0;
+            padding: 48px 24px;
+            background-color: brown;
+            //background: linear-gradient(135deg, #eef5ff, #f8fbff);
+            color: #172554;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            margin: 0 0 32px;
+            text-align: center;
+            font-size: clamp(2rem, 5vw, 3rem);
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0;
+            list-style: none;
+        }
+
+        li {
+            overflow: hidden;
+            padding: 10px;
+            border: 1px solid #dbeafe;
+            border-radius: 18px;
+            background: #fff;
+            box-shadow: 0 12px 30px rgb(23 37 84 / 10%);
+            transition: transform 180ms ease, box-shadow 180ms ease;
+        }
+
+        li:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 36px rgb(23 37 84 / 18%);
+        }
+
+        img {
+            display: block;
+            width: 260px;
+            max-width: 100%;
+            height: 190px;
+            border-radius: 12px;
+            object-fit: cover;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 32px 16px;
+            }
+
+            li,
+            img {
+                width: 100%;
+            }
+
+            img {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Amazing Image Gallery</h1>
+    <ul id="images">
+        <li><img  id="photoshop" src="data:image/jpeg;base64,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" alt="OWL"   ></li>
+        <li><img  id="owl" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWnuB9fBJDJF6aU_c48r9ihtlnVc-0iNzWDs-m9Csh1hvVX3PtBbtCwrp7&s=10" alt="rama"   ></li>
+        <li><img  id="game" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7XIQHcISAyYKN3YOU1RJE7cYY_O1ia9xCwC8vldzF_A&s=10"  alt="GAMELING"   ></li>
+    </ul>
+ <script>
+    // here we use events
+    const images = document.getElementById('images');
+
+    //  attachEvent()
+    // jQuery - on
+
+    // type, timestamp, defaultPrevented
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+
+    images.addEventListener('click', function (event) {     //Jab browser mein koi event hota hai — jaise click, keydown, submit, mouseover — browser us event ki information ka ek Event object banata hai.
+         console.log("clicked inside the ul");                                                    //Phir browser tumhare callback function ko woh object automatically de deta hai.
+        
+        if (!(event.target instanceof HTMLImageElement)) {
+            return;
+        }  // ka matlab: kya clicked element ek <img> element hai?
+
+
+        console.log(event.target.tagName); //tagName clicked element ka HTML tag batata hai.
+        console.log(event.target.id);
+
+        if (event.target.id === 'owl') {
+            alert("owl clicked");
+        }
+
+        event.target.closest('li').remove();
+    });
+ </script>
+</body>
+</html>
